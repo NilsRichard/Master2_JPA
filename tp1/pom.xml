@@ -13,7 +13,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<tomcat7-version>7.0.93</tomcat7-version>
+		<tomcat.version>9.0.37</tomcat.version>
+		<failOnMissingWebXml>false</failOnMissingWebXml>
 	</properties>
 
 	<dependencies>
@@ -68,19 +69,16 @@
 
 			<!-- * Start of user code for plugins -->
 			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.8.0</version>
 				<configuration>
-					<path>/</path>
+					<container>
+						<containerId>tomcat9x</containerId>
+						<type>embedded</type>
+					</container>
 				</configuration>
 			</plugin>
-
-			<!-- <plugin> <groupId>org.apache.tomcat.maven</groupId> <artifactId>tomcat7-maven-plugin</artifactId> 
-				<version>2.2</version> <dependencies> <dependency> <groupId>org.apache.tomcat.embed</groupId> 
-				<artifactId>tomcat-embed-core</artifactId> <version>${tomcat7-version}</version> 
-				</dependency> </dependencies> <configuration> <path>/</path> </configuration> 
-				</plugin> -->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
