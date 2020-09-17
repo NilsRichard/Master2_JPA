@@ -6,7 +6,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import kanbandbnr.UserKB;
+import domain.UserKB;
 
 public class JpaTest {
 

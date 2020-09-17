@@ -7,12 +7,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import kanbandbnr.ColumnKB;
-import kanbandbnr.TagKB;
-import kanbandbnr.BoardKB;
-import kanbandbnr.CardKB;
-import kanbandbnr.ColoredTagKB;
-import kanbandbnr.UserKB;
+import domain.BoardKB;
+import domain.CardKB;
+import domain.ColoredTagKB;
+import domain.ColumnKB;
+import domain.TagKB;
+import domain.UserKB;
 
 /**
  * jdbc:hsqldb:hsql://localhost/

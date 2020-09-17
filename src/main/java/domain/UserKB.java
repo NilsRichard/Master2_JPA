@@ -1,4 +1,6 @@
-package kanbandbnr;
+package domain;
+
+import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class UserKB {
+public class UserKB implements Serializable  {
+
+	private static final long serialVersionUID = -3865139814508230644L;
 
 	private Long id;
 

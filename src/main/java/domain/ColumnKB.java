@@ -1,5 +1,6 @@
-package kanbandbnr;
+package domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class ColumnKB {
+public class ColumnKB implements Serializable  {
+
+	private static final long serialVersionUID = 8994820114628485374L;
 
 	private Long id;
 

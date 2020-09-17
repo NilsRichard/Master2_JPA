@@ -1,5 +1,7 @@
-package kanbandbnr;
+package domain;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,13 +13,15 @@ import javax.persistence.ManyToMany;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class TagKB {
+public class TagKB implements Serializable  {
+
+	private static final long serialVersionUID = -5312824533997938950L;
 
 	private Long id;
 
 	private String label;
 
-	private List<CardKB> cards;
+	private List<CardKB> cards = new ArrayList<CardKB>();
 	
 	public void addCards(CardKB card) {
 		this.cards.add(card);
