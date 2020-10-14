@@ -1,4 +1,4 @@
-# TP1 JPA (+Partie 1 TP2 servlets)
+# TP1 JPA (+ Partie 1 TP2 servlets)
 
 ## Auteurs 
 
@@ -9,11 +9,11 @@
 
 *cf. n'importe quelle classe dans le package* `domain` *et* `dao` 
 
-Pour les classes DAO nous avons utilisé `AbstractJpaDao` pour simplifier et généraliser ceux-ci
+Pour les classes DAO nous avons utilisé `AbstractJpaDao` pour simplifier et généraliser celles-ci.
 
 ## Question 4
 
-Il était impossible de créer une bdd sur le site proposé nous avons utilisé des bdd locale et mis cette dépendance à la place :
+Il était impossible de créer une BDD sur le site indiqué, nous avons donc utilisé des BDD locales et mis cette dépendance à la place :
 
 ```
 <dependency>
@@ -41,19 +41,24 @@ public BoardKB findByName(String name) {
 }
 ```
 
-cf. le package `dao` pour l'implémentation des classes DAO
+cf. le package `dao` pour l'implémentation des classes DAO.
 
-Étant donné qu'il n'y a pas de REST dans ce repository cette question nous parait étrange et doit vouloir parler du prochain TP vous trouverez une utilisation de nos classes DAO dans un service REST dans le TP2 : https://github.com/NilsRichard/Master2_KanbanApp
+Étant donné qu'il n'y a pas de REST dans ce repository, cette question nous paraît étrange et nous semble vouloir 
+parler du prochain TP. Vous trouverez ainsi une utilisation de nos classes DAO dans un service REST dans le TP2 : 
+https://github.com/NilsRichard/Master2_KanbanApp
 
-Si nous avions une implémentation REST dans ce repo il serait évident que nous devrions instantier nous même les DAO avant de pouvoir les utiliser, c'est sûrement le problème dont il demander de discuter.
+Si nous avions une implémentation REST dans ce repo, nous devrions instancier nous même les DAO avant de pouvoir les 
+utiliser, c'est sûrement le problème dont il est demandé de discuter. Il faudrait utiliser un système d'injection de 
+dépendances afin d'éviter l'interdépendance de classes concrètes.
 
-Avec un système d'injection de dépendance via annotations *`@Autowired`* il sera bien plus simple d'appeler les classes DAO sans devoir se soucier des instanciations et des injections de dépendance.
+Avec un système d'injection de dépendance via annotations *`@Autowired`*, il serait bien plus simple d'appeler les 
+classes DAO sans devoir se soucier des instanciations et des injections de dépendance.
 
 ## Question 6
 
 ##### Initialisation de la BDD
 
-<img src="img/jpatest_data.png" style="zoom:50%;" />
+![](img/jpatest_data.png)
 
 ##### Joinfetch
 
@@ -67,7 +72,7 @@ Avec un système d'injection de dépendance via annotations *`@Autowired`* il se
 
 On voit une large différence de performance entre les deux techniques.
 
-Il y a aussi une requête pour le join fetch contre un nombre très élevé de requêtes avec le n1 select.
+On remarque également une seule requête pour le join fetch contre un nombre très élevé de requêtes avec le N+1 select.
 
 
 
@@ -91,16 +96,16 @@ Il y a aussi une requête pour le join fetch contre un nombre très élevé de r
 
 ## Question 5
 
-On ajoute un utilisateur
+On ajoute un utilisateur :
 
 ![](img/addForm.png)
 
-On le retrouve dans la liste des utilisateurs dans la bdd
+On le retrouve dans la liste des utilisateurs dans la BDD :
 
 ![](img/userList.png)
 
 
-## Question 6 En avant pour les architectures Rest.
-*Vous trouverez la suite de ce TP dans le second repository:* 
+## Question 6
+*Vous trouverez la suite de ce TP dans le second repository :* 
 
 https://github.com/NilsRichard/Master2_KanbanApp

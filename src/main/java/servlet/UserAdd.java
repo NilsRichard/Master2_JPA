@@ -3,7 +3,6 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,34 +11,35 @@ import javax.servlet.http.HttpServletResponse;
 import dao.UserKBDao;
 import domain.UserKB;
 
-@WebServlet(name = "useradd", urlPatterns = { "/userAdd" })
+/**
+ * @author Nils Richard
+ * @author Dorian Bouillet
+ */
+@WebServlet(name = "useradd", urlPatterns = {"/userAdd"})
 public class UserAdd extends HttpServlet {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1483384336025226873L;
-	
-	private UserKBDao dao;
+    private static final long serialVersionUID = 1483384336025226873L;
 
-	public UserAdd() {
-		super();
-		this.dao = new UserKBDao();
-	}
+    private UserKBDao dao;
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
+    public UserAdd() {
+        super();
+        this.dao = new UserKBDao();
+    }
 
-		UserKB newUser = new UserKB(request.getParameter("firstname"), request.getParameter("lastname"),
-				request.getParameter("email"));
-		
-		dao.save(newUser);
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html");
 
-		PrintWriter out = response.getWriter();
+        UserKB newUser = new UserKB(request.getParameter("firstname"), request.getParameter("lastname"),
+                request.getParameter("email"));
 
-		out.println("<HTML>\n<BODY>\n" + "<H1>Recapitulatif des informations</H1>\n" + "<UL>\n" + " <LI>firstname: "
-				+ newUser.getFirstName() + "\n" + " <LI>Lastname: " + newUser.getLastName() + "\n" + " <LI>Email: "
-				+ newUser.getEmail() + "\n" + "</UL>\n" + "</BODY></HTML>");
+        dao.save(newUser);
 
-		out.flush();
-	}
+        PrintWriter out = response.getWriter();
+
+        out.println("<HTML>\n<BODY>\n" + "<H1>Récapitulatif des informations</H1>\n" + "<UL>\n" + " <LI>firstname: "
+                + newUser.getFirstName() + "\n" + " <LI>Lastname: " + newUser.getLastName() + "\n" + " <LI>Email: "
+                + newUser.getEmail() + "\n" + "</UL>\n" + "</BODY></HTML>");
+
+        out.flush();
+    }
 }

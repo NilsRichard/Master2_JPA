@@ -14,139 +14,144 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlElementWrapper;
 
+/**
+ * @author Nils Richard
+ * @author Dorian Bouillet
+ */
 @Entity
-public class CardKB implements Serializable  {
+public class CardKB implements Serializable {
 
-	private static final long serialVersionUID = -7963053538051720399L;
+    private static final long serialVersionUID = -7963053538051720399L;
 
-	private Long id;
+    private Long id;
 
-	private String label;
+    private String label;
 
-	private String description;
+    private String description;
 
-	private Calendar dueDate;
+    private Calendar dueDate;
 
-	private UserKB assignedUser;
+    private UserKB assignedUser;
 
-	private int estimatedTimeMinutes;
+    private int estimatedTimeMinutes;
 
-	private List<TagKB> tags = new ArrayList<TagKB>();
+    private List<TagKB> tags = new ArrayList<>();
 
-	private String url;
-	
-	private String location;
+    private String url;
 
-	@Override
-	public String toString() {
-		return "Card [id=" + id + ", label=" + label + ", description=" + description + ", dueDate=" + dueDate
-				+ ", assignedUser=" + assignedUser + ", estimatedTimeMinutes=" + estimatedTimeMinutes + ", tags=" + tags
-				+ ", url=" + url + ", location=" + location + ", column=" + column + "]";
-	}
+    private String location;
 
-	private ColumnKB column;
+    private ColumnKB column;
 
-	public CardKB() {
-		super();
-	}
+    @Override
+    public String toString() {
+        return "Card [id=" + id + ", label=" + label + ", description=" + description + ", dueDate=" + dueDate
+                + ", assignedUser=" + assignedUser + ", estimatedTimeMinutes=" + estimatedTimeMinutes + ", tags=" + tags
+                + ", url=" + url + ", location=" + location + ", column=" + column + "]";
+    }
 
-	public CardKB(String label, String description, int estimatedTimeMinutes, String url, String location) {
-		super();
-		this.label = label;
-		this.description = description;
-		this.estimatedTimeMinutes = estimatedTimeMinutes;
-		this.url = url;
-		this.location = location;
-	}
 
-	public void addTag(TagKB tag) {
-		this.tags.add(tag);
-	}
+    public CardKB() {
+        super();
+    }
 
-	@OneToOne
-	public UserKB getAssignedUser() {
-		return assignedUser;
-	}
+    public CardKB(String label, String description, int estimatedTimeMinutes, String url, String location) {
+        super();
+        this.label = label;
+        this.description = description;
+        this.estimatedTimeMinutes = estimatedTimeMinutes;
+        this.url = url;
+        this.location = location;
+    }
 
-	@ManyToOne
-	public ColumnKB getColumn() {
-		return column;
-	}
+    public void addTag(TagKB tag) {
+        this.tags.add(tag);
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    @OneToOne
+    public UserKB getAssignedUser() {
+        return assignedUser;
+    }
 
-	public Calendar getDueDate() {
-		return dueDate;
-	}
+    @ManyToOne
+    public ColumnKB getColumn() {
+        return column;
+    }
 
-	public int getEstimatedTimeMinutes() {
-		return estimatedTimeMinutes;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	@Id
-	@GeneratedValue
-	public Long getId() {
-		return id;
-	}
+    public Calendar getDueDate() {
+        return dueDate;
+    }
 
-	public String getLabel() {
-		return label;
-	}
+    public int getEstimatedTimeMinutes() {
+        return estimatedTimeMinutes;
+    }
 
-	public String getLocation() {
-		return location;
-	}
+    @Id
+    @GeneratedValue
+    public Long getId() {
+        return id;
+    }
 
-	@XmlElementWrapper(name = "tags")
-	@ManyToMany(mappedBy="cards", cascade = CascadeType.PERSIST)
-	public List<TagKB> getTags() {
-		return tags;
-	}
+    public String getLabel() {
+        return label;
+    }
 
-	public String getUrl() {
-		return url;
-	}
+    public String getLocation() {
+        return location;
+    }
 
-	public void setAssignedUser(UserKB assignedUser) {
-		this.assignedUser = assignedUser;
-	}
+    @XmlElementWrapper(name = "tags")
+    @ManyToMany(mappedBy = "cards", cascade = CascadeType.PERSIST)
+    public List<TagKB> getTags() {
+        return tags;
+    }
 
-	public void setColumn(ColumnKB column) {
-		this.column = column;
-	}
+    public String getUrl() {
+        return url;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setAssignedUser(UserKB assignedUser) {
+        this.assignedUser = assignedUser;
+    }
 
-	public void setDueDate(Calendar dueDate) {
-		this.dueDate = dueDate;
-	}
+    public void setColumn(ColumnKB column) {
+        this.column = column;
+    }
 
-	public void setEstimatedTimeMinutes(int estimatedTimeMinutes) {
-		this.estimatedTimeMinutes = estimatedTimeMinutes;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setDueDate(Calendar dueDate) {
+        this.dueDate = dueDate;
+    }
 
-	public void setLabel(String label) {
-		this.label = label;
-	}
+    public void setEstimatedTimeMinutes(int estimatedTimeMinutes) {
+        this.estimatedTimeMinutes = estimatedTimeMinutes;
+    }
 
-	public void setLocation(String location) {
-		this.location = location;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setTags(List<TagKB> tags) {
-		this.tags = tags;
-	}
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setTags(List<TagKB> tags) {
+        this.tags = tags;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
 }

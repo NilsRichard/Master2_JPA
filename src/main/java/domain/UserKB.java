@@ -7,71 +7,75 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+/**
+ * @author Nils Richard
+ * @author Dorian Bouillet
+ */
 @Entity
-public class UserKB implements Serializable  {
+public class UserKB implements Serializable {
 
-	private static final long serialVersionUID = -3865139814508230644L;
+    private static final long serialVersionUID = -3865139814508230644L;
 
-	private Long id;
+    private Long id;
 
-	private String firstName;
+    private String firstName;
 
-	private String lastName;
+    private String lastName;
 
-	private String email;
+    private String email;
 
-	private CardKB card;
+    private CardKB card;
 
-	public UserKB() {
-	}
+    public UserKB() {
+    }
 
-	public UserKB(String firstName, String lastName, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-	}
+    public UserKB(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
 
-	@OneToOne(mappedBy = "assignedUser")
-	public CardKB getCard() {
-		return card;
-	}
+    @OneToOne(mappedBy = "assignedUser")
+    public CardKB getCard() {
+        return card;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	@Id
-	@GeneratedValue
-	public Long getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue
+    public Long getId() {
+        return id;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public void setCard(CardKB card) {
-		this.card = card;
-	}
+    public void setCard(CardKB card) {
+        this.card = card;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
 }

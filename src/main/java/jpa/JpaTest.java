@@ -8,19 +8,19 @@ import javax.persistence.Persistence;
 
 import domain.UserKB;
 
+/**
+ * @author Nils Richard
+ * @author Dorian Bouillet
+ */
 public class JpaTest {
 
-	/**
-	 * jdbc:hsqldb:hsql://localhost/
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("mysql");
-		EntityManager manager = factory.createEntityManager();
+    public static void main(String[] args) {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("mysql");
+        EntityManager manager = factory.createEntityManager();
 
-		EntityTransaction tx = manager.getTransaction();
-		tx.begin();
-		try {
+        EntityTransaction tx = manager.getTransaction();
+        tx.begin();
+        try {
 
 //			Board table = new Board("FirstTable");
 //
@@ -30,27 +30,27 @@ public class JpaTest {
 //
 //			manager.persist(table);
 
-			UserKB user = new UserKB();
-			user.setEmail("beurre@mail.fr");
-			user.setFirstName("Jean");
-			user.setLastName("Bon");
+            UserKB user = new UserKB();
+            user.setEmail("beurre@mail.fr");
+            user.setFirstName("Jean");
+            user.setLastName("Bon");
 
-			UserKB user2 = new UserKB();
-			user2.setEmail("tartine@mail.fr");
-			user2.setFirstName("Jean");
-			user2.setLastName("Aimarre");
+            UserKB user2 = new UserKB();
+            user2.setEmail("tartine@mail.fr");
+            user2.setFirstName("Jean");
+            user2.setLastName("Aimarre");
 
-			manager.persist(user);
-			manager.persist(user2);
+            manager.persist(user);
+            manager.persist(user2);
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		tx.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        tx.commit();
 
-		manager.close();
-		factory.close();
-	}
-	
-	
+        manager.close();
+        factory.close();
+    }
+
+
 }
