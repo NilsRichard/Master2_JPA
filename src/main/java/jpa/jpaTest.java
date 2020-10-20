@@ -18,12 +18,11 @@ import domain.UserKB;
  * @author Nils Richard
  * @author Dorian Bouillet
  */
-public class JpaEtienne {
+public class jpaTest {
 
     private EntityManager manager;
 
-    public JpaEtienne(EntityManager manager) {
-        super();
+    public jpaTest(EntityManager manager) {
         this.manager = manager;
     }
 
@@ -31,7 +30,7 @@ public class JpaEtienne {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("mysql");
         EntityManager manager = factory.createEntityManager();
 
-        JpaEtienne jpa = new JpaEtienne(manager);
+        jpaTest jpa = new jpaTest(manager);
 
         EntityTransaction tx = manager.getTransaction();
         tx.begin();
